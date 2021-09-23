@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/cc?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+section {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    /* hauteur minimale : vh équivaut à 1/100ème de la hauteur de la fenêtre */
+    background: #161623;
+    overflow: hidden;
+}
+
+section::before {
+    /* '::before' = crée un pseudo-élément qui sera le premier enfant de l'élément ciblé, ici l'élément 'section', généralement utilisé pour ajouter du contenu esthétique à un élément via la propriété CSS 'content'.  */
+    content: '';
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: linear-gradient(#ffc107, #e91e63);
+    border-radius: 50%;
+    transform: translate(-250px, -120px);
+    /* pour décaler sur l'axe X et Y*/
+}
+
+section::after {
+    /*  '::after' crée un pseudo-élément qui sera le dernier enfant de l'élément sélectionn, ici 'section'. Il est souvent utilisé pour ajouter du contenu cosmétique à un élément, en utilisant la propriété CSS 'content'. */
+    content: '';
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    background: linear-gradient(#2196f3, #31ff38);
+    /*dégradé de couleur */
+    border-radius: 50%;
+    transform: translate(250px, 150px);
+}
+
+.box {
+    position: relative;
+    z-index: 1000;
+}
+
+.container {
+    position: relative;
+    width: 400px;
+    height: 420px;
+    background: rgba(255, 255, 255, 0.288);
+    box-shadow: 0px 25px 45px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+    /* atténue la bordure à droite, cela donne un effet de profondeur avec l'ombre */
+    border-bottom: 1px solid #ec9b04;
+    backdrop-filter: blur(50px);
+    /*donne un effet de flou gaussien = non pris en charge par Firefox et Explorer*/
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+#dycalendar {
+    height: 400px;
+    width: 100%;
+    padding: 20px;
+}
+
+#dycalendar table {
+    width: 100%;
+    margin-top: 40px;
+    border-spacing: 5px;
+    /* gère les espaces entre les cellules du table*/
+}
+
+
+
+#dycalendar table tr:nth-child(1) td {
+    /* 'tr:nth-child()' permet de cibler tout les enfants 'td' (ici la ligne 1) de l'élément parent (tr) */
+    background: #fff;
+    color: #111;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+#dycalendar table td {
+    /*tout les jours du mois */
+    color: #fff;
+    padding: 10px;
+    /* modification du pointeur dès qu'on passe la souris sur les jours */
+    border-radius: 4px;
+}
+
+.dycalendar-month-container .dycalendar-body table tr td {
+    cursor: pointer;
+}
+
+
+#dycalendar table td:hover {
+    background: #fff;
+    color: #111;
+}
+
+.dycalendar-month-container .dycalendar-today-date,
+.dycalendar-month-container .dycalendar-target-date {
+    background: #fff !important;
+    color: #111 !important;
+    font-weight: 800;
+}
+
+.dycalendar-month-container .dycalendar-header .dycalendar-prev-next-btn.prev-btn {
+    background: #fff;
+    color: #111;
+    width: 44px;
+    height: 38px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 24px;
+    transform: translateX(4px);
+
+}
+
+.dycalendar-month-container .dycalendar-header .dycalendar-prev-next-btn.next-btn {
+    background: #fff;
+    color: #111;
+    width: 44px;
+    height: 38px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 24px;
+    transform: translateX(-4px);
+}
+
+.dycalendar-month-container .dycalendar-span-month-year {
+    color: #fff;
+    font-size: 1.5em;
+    font-weight: 600;
+}
